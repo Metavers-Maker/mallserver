@@ -33,3 +33,5 @@ muling-common/common-web/target
 muling-common/common-swagger/target
 muling-common/common-sms/target
 muling-common/common-redis/target
+.idea/compiler.xml
+.idea/encodings.xml
