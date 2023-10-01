@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: mall-otc
+  profiles:
+    active: dev

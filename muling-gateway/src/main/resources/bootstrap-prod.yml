@@ -1,0 +1,26 @@
+server:
+  port: 9900
+  # https配置 阿里云申请免费证书
+  # 是因为用户使用https访问网关，网关也会使用https访问各个微服务，解决方法是在bootstrap.yml配置把https转成http
+  # lb:[overwite scheme]://sample-web 这行加上http就行了 lb:http://sample-web
+  ssl:
+    enabled: false
+    key-store: classpath:xxxxxxxxxxx.pfx
+    key-store-type: PKCS12
+    key-store-password: xxxxxxxxx
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://mse-e9c2d346-nacos-ans.mse.aliyuncs.com
+        namespace: meta2link-nacos-prod
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+        namespace: meta2link-nacos-prod
+        shared-configs[0]:
+          data-id: muling-common.yaml
+          refresh: true

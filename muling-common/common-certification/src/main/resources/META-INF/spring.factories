@@ -1,0 +1,8 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.muling.common.cert.config.CertConfig,\
+  com.muling.common.cert.service.CertService,\
+  com.muling.common.cert.config.BSNConfig,\
+  com.muling.common.cert.service.HttpApiClientBSN,\
+  com.muling.common.cert.config.SandConfig,\
+  com.muling.common.cert.service.HttpApiClientSand,\
+  com.muling.common.cert.service.HttpApiClientWechat

@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.muling.common.elasticsearch.config.RestHighLevelClientConfig,\
+  com.muling.common.elasticsearch.service.ElasticSearchService

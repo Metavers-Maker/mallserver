@@ -1,0 +1,48 @@
+PUT pms_sku
+{
+  "mappings": {
+    "properties": {
+      "_class": {
+        "type": "keyword",
+        "index": false,
+        "doc_values": false
+      },
+      "name": {
+        "type": "text",
+        "analyzer": "ik_smart"
+      },
+      "spu_id": {
+        "type": "long"
+      },
+      "price": {
+        "type": "integer"
+      },
+      "pic_url": {
+        "type": "text"
+      },
+      "stock_num": {
+        "type": "integer"
+      },
+      "locked_stock_num": {
+        "type": "integer"
+      },
+      "mint_num": {
+        "type": "integer"
+      },
+      "visible": {
+        "type": "integer"
+      },
+      "closed": {
+        "type": "integer"
+      },
+      "created": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      },
+      "updated": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      }
+    }
+  }
+}

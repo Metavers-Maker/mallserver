@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: mall-task
+  profiles:
+    active: dev

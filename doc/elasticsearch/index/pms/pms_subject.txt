@@ -1,0 +1,43 @@
+PUT pms_subject
+{
+  "mappings": {
+    "properties": {
+      "_class": {
+        "type": "keyword",
+        "index": false,
+        "doc_values": false
+      },
+      "brand_id": {
+        "type": "long"
+      },
+      "created": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss|| strict_date_optional_time"
+      },
+      "ext": {
+        "type": "object"
+      },
+      "name": {
+        "type": "text",
+        "analyzer": "ik_smart"
+      },
+      "sort": {
+        "type": "integer"
+      },
+      "status": {
+        "type": "integer"
+      },
+     "started": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss|| strict_date_optional_time"
+      },
+      "updated": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss|| strict_date_optional_time"
+      },
+      "visible": {
+        "type": "integer"
+      }
+    }
+  }
+}

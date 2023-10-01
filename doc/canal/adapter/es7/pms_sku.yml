@@ -1,0 +1,18 @@
+dataSourceKey: defaultDS
+outerAdapterKey: es71
+destination: example
+groupId: g1
+esMapping:
+  _index: pms_sku
+  _type: _doc
+  _id: id
+  upsert: true
+#  pk: id
+  sql: "select id,spu_id,name,price,pic_url,stock_num,locked_stock_num,mint_num,visible,closed,created,updated from pms_sku"
+#  objFields:
+#    albbum: object
+#    images: object
+#    icons: object
+#    ext: object
+  etlCondition: "where id>='{0}'" #etl的条件参数，可以将之前没能同步的数据同步，数据量大的话可以用logstash
+  commitBatch: 3000

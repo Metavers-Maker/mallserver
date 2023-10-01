@@ -1,0 +1,27 @@
+server:
+  port: 9970
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    nacos:
+      # 注册中心
+      discovery:
+        server-addr: http://a.muling.tech:8848
+        namespace: 6b8c8adb-db85-46ef-b8e4-9ba39203ec6a
+        #server-addr: http://47.104.71.254:38848
+        #namespace: daf061a2-17b0-4306-8102-818066446c61
+      # 配置中心
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+        namespace: 6b8c8adb-db85-46ef-b8e4-9ba39203ec6a
+        #namespace: daf061a2-17b0-4306-8102-818066446c61
+        shared-configs[0]:
+          data-id: muling-common.yaml
+          refresh: true
+
+logging:
+  level:
+    ROOT: info

@@ -1,0 +1,22 @@
+server:
+  port: 9913
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://mse-e9c2d346-nacos-ans.mse.aliyuncs.com
+        namespace: meta2link-nacos-prod
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+        namespace: meta2link-nacos-prod
+        shared-configs[0]:
+          data-id: muling-common.yaml
+          refresh: true
+
+logging:
+  level:
+    ROOT: INFO

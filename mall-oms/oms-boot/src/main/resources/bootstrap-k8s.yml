@@ -1,0 +1,18 @@
+server:
+  port: 9960
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-admin.default.svc.cluster.local:8848
+        namespace: 642f932f-36b1-4376-9745-cdf590665bcb
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+        namespace: 642f932f-36b1-4376-9745-cdf590665bcb
+        shared-configs[0]:
+          data-id: muling-common.yaml
+          refresh: true

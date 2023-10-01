@@ -1,0 +1,13 @@
+dataSourceKey: defaultDS
+outerAdapterKey: es71
+destination: example
+groupId: g1
+esMapping:
+  _index: user
+  _type: _doc
+  _id: _id
+  upsert: true
+#  pk: id
+  sql: "select id as _id,id,name,detail,age from user"
+  etlCondition: "where id>='{0}'" #etl的条件参数，可以将之前没能同步的数据同步，数据量大的话可以用logstash
+  commitBatch: 3000

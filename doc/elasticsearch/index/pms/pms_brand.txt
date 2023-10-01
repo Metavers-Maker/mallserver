@@ -1,0 +1,39 @@
+PUT pms_brand
+{
+  "mappings": {
+    "properties": {
+      "_class": {
+        "type": "keyword",
+        "index": false,
+        "doc_values": false
+      },
+      "name": {
+        "type": "text",
+        "analyzer": "ik_smart"
+      },
+      "logo_url": {
+        "type": "text"
+      },
+      "ext": {
+        "type": "object"
+      },
+      "sort": {
+        "type": "integer"
+      },
+      "status": {
+        "type": "integer"
+      },
+      "visible": {
+        "type": "integer"
+      },
+      "created": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      },
+      "updated": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      }
+    }
+  }
+}

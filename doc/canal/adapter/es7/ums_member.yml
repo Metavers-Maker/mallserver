@@ -1,0 +1,13 @@
+dataSourceKey: umsDS
+outerAdapterKey: es71
+destination: example
+groupId: g1
+esMapping:
+  _index: ums_member
+  _type: _doc
+  _id: id
+  upsert: true
+  #  pk: id
+  sql: "SELECT id,openid,password,email,mobile,uid,nick_name,gender,avatar_url,status,auth_status,birthday,secret,is_bind_google,chain_address,ext,invite_code,invite_user,deleted,created,updated FROM ums_member"
+  etlCondition: "where id>='{0}'" #etl的条件参数，可以将之前没能同步的数据同步，数据量大的话可以用logstash
+  commitBatch: 3000

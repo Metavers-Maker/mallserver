@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <properties>
+        <property name="APP_NAME">admin-boot</property>
+        <property name="SHORT_APP_NAME">admin-boot</property>
+        <property name="LOG_DIR">${env:LOG_PATH_CONFERENCE_MANAGER:-${env:LOG_PATH:-/opt/${APP_NAME}/log}}</property>
+        <property name="LOG_FILE_DIR">${LOG_DIR}/${env:LOG_FILE:-${APP_NAME}.log}</property>
+        <property name="LOG_EXCEPTION_CONVERSION_WORD">%xwEx</property>
+        <property name="LOG_DATE_FORMAT_PATTERN">yyyy-MM-dd HH:mm:ss.SSSZ</property>
+        <property name="LOG_FILE_MAX_SIZE">${sys:LOGGING_FILE_MAX_SIZE:-100} MB</property>
+        <property name="LOG_FILE_MAX_BACKUPS">${sys:LOGGING_FILE_MAX_BACKUPS:-20}</property>
+        <property name="LOG_FILE_MAX_HISTORY">${sys:LOGGING_FILE_MAX_HISTORY:-30}d</property>
+        <property name="LOG_FILE_COMPRESS_MODE">${sys:LOGGING_FILE_COMPRESS_MODE:-.gz}</property>
+        <property name="FILE_LOG_PATTERN">[%d{${LOG_DATE_FORMAT_PATTERN}}{GMT+8}]-[${SHORT_APP_NAME}]-[%-1p]-[%X{X-B3-TraceId}]-[%-1.25t] %.30c{1} %L : %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}</property>
+        <property name="CONSOLE_LOG_PATTERN">[%d{${LOG_DATE_FORMAT_PATTERN}}]-[${SHORT_APP_NAME}]-[%-1p]-[%X{X-B3-TraceId}]-[%-1.25t] %.30c{1} %L : %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}</property>
+    </properties>
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="${sys:CONSOLE_LOG_PATTERN}" />
+        </Console>
+        <RollingRandomAccessFile name="ASYNC_LOG"  immediateFlush="false" fileName="${sys:LOG_FILE_DIR}" filePattern="${sys:LOG_FILE_DIR}.%d{yyyy-MM-dd-HH-mm-ss}.%i${LOG_FILE_COMPRESS_MODE}">
+            <PatternLayout>
+                <Pattern>${sys:FILE_LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="${LOG_FILE_MAX_SIZE}" />
+            </Policies>
+            <DefaultRolloverStrategy max="${LOG_FILE_MAX_BACKUPS}">
+                <Delete basePath="${sys:LOG_DIR}" maxDepth="1">
+                    <IfFileName glob="*${LOG_FILE_COMPRESS_MODE}" >
+                        <IfAny>
+                            <IfLastModified age="${LOG_FILE_MAX_HISTORY}" />
+                            <IfAccumulatedFileCount exceeds="${LOG_FILE_MAX_BACKUPS}"/>
+                        </IfAny>
+                    </IfFileName>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="INFO" includeLocation="true">
+            <AppenderRef ref="ASYNC_LOG" />
+            <AppenderRef ref="CONSOLE" />
+        </Root>
+    </Loggers>
+</configuration>

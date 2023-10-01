@@ -1,0 +1,9 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.muling.common.web.config.WebMvcConfig,\
+  com.muling.common.web.config.ValidationConfig,\
+  com.muling.common.web.config.FeignConfig,\
+  com.muling.common.web.exception.GlobalExceptionHandler,\
+  com.muling.common.web.security.advice.PermissionAdvice,\
+  com.muling.common.web.interceptor.AdminInterceptor,\
+  com.muling.common.web.config.AccessLogConfig,\
+  com.muling.common.web.service.ValidateService

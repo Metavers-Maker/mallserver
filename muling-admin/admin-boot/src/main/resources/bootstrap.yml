@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: muling-admin
+  profiles:
+    active: dev
+
+
+#日志配置，支持写入外部文件，方便问题排查
+logging:
+  file:
+    max-history: 10d
+    max-size: 50MB
+  level:
+    root: INFO
+    io.jaegertracing: WARN
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

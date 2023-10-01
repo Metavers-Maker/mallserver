@@ -1,0 +1,36 @@
+PUT pms_banner
+{
+  "mappings": {
+    "properties": {
+      "_class": {
+        "type": "keyword",
+        "index": false,
+        "doc_values": false
+      },
+      "name": {
+        "type": "text",
+        "analyzer": "ik_smart"
+      },
+      "link_type": {
+        "type": "integer"
+      },
+      "link": {
+        "type": "text"
+      },
+      "source": {
+        "type": "text"
+      },
+      "visible": {
+        "type": "integer"
+      },
+      "created": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      },
+      "updated": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      }
+    }
+  }
+}

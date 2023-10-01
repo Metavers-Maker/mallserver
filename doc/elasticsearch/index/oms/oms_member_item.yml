@@ -1,0 +1,60 @@
+PUT oms_member_item
+{
+  "mappings": {
+    "properties": {
+      "_class": {
+        "type": "keyword",
+        "index": false,
+        "doc_values": false
+      },
+      "order_id": {
+        "type": "long"
+      },
+      "member_id": {
+        "type": "long"
+      },
+      "type": {
+        "type": "integer"
+      },
+      "spu_id": {
+        "type": "long"
+      },
+      "sku_id": {
+        "type": "long"
+      },
+      "product_id": {
+        "type": "text"
+      },
+      "hex_id": {
+        "type": "text"
+      },
+      "name": {
+        "type": "text",
+        "analyzer": "ik_smart"
+      },
+      "contract": {
+        "type": "text"
+      },
+      "pic_url": {
+        "type": "text"
+      },
+      "hash": {
+        "type": "text"
+      },
+      "item_no": {
+        "type": "integer"
+      },
+      "status": {
+        "type": "integer"
+      },
+      "created": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      },
+      "updated": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      }
+    }
+  }
+}

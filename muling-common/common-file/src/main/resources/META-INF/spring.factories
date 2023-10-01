@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.muling.common.file.config.MinioConfig,\
+  com.muling.common.file.service.MinioService,\
+  com.muling.common.file.controller.FileController
+

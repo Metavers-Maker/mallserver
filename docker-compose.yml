@@ -1,0 +1,103 @@
+version: '2'
+services:
+  mysql:
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+    container_name: mysql
+    hostname: mysql
+    image: mysql:5.7
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+      --max_allowed_packet=128M
+    ports:
+      - 3306:3306
+
+  redis:
+    image: redis:5
+    ports:
+      - 6379:6379
+    restart: always
+    container_name: redis
+    hostname: redis
+
+  nacos:
+    restart: always
+    image: nacos/nacos-server
+    container_name: nacos
+    hostname: nacos
+    ports:
+      - 8848:8848
+    environment:
+      MODE: standalone
+
+  nginx:
+    container_name: nginx
+    image: nginx:1.10
+    restart: always
+    privileged: true
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/logs:/var/log/nginx
+      - ./nginx/conf:/etc/nginx
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3.7.15-management
+    hostname: rabbitmq
+    restart: always
+    ports:
+      - 15672:15672
+      - 5672:5672
+      - 25672:25672
+      - 15674:15674
+      - 61613:61613
+
+  muling-gateway:
+    restart: always
+    ports:
+      - 9999:9999
+    container_name: muling-gateway
+    hostname: muling-gateway
+    image: muling-gateway:0.0.1
+
+  muling-auth:
+    restart: always
+    container_name: muling-auth
+    hostname: muling-auth
+    image: muling-auth:0.0.1
+
+  admin-boot:
+    restart: always
+    container_name: admin-boot
+    hostname: admin-boot
+    image: admin-boot:0.0.1
+
+  ums-boot:
+    restart: always
+    container_name: ums-boot
+    hostname: ums-boot
+    image: ums-boot:0.0.1
+    privileged: true
+
+  chat-boot:
+    restart: always
+    container_name: chat-boot
+    hostname: chat-boot
+    image: chat-boot:0.0.1
+
+
+  xxl-job-admin:
+    restart: always
+    container_name: xxl-job-admin
+    hostname: xxl-job-admin
+    image: xxl-job-admin
+    volumes:
+      - /app/xxl-job-admin/application.properties:/opt/xxl-job-admin/application.properties

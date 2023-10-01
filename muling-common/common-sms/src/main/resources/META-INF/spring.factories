@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.muling.common.sms.config.SmsConfig,\
+  com.muling.common.sms.service.SmsService,\
+  com.muling.common.sms.controller.SmsController,\
+  com.muling.common.sms.utils.CheckSumBuilder

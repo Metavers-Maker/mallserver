@@ -1,0 +1,79 @@
+PUT pms_spu
+{
+  "mappings": {
+    "properties": {
+      "_class": {
+        "type": "keyword",
+        "index": false,
+        "doc_values": false
+      },
+      "name": {
+        "type": "text",
+        "analyzer": "ik_smart"
+      },
+      "subject_id": {
+        "type": "long"
+      },
+      "product_id": {
+        "type": "text"
+      },
+      "brand_id": {
+        "type": "long"
+      },
+      "contract": {
+        "type": "text"
+      },
+      "source_type": {
+        "type": "integer"
+      },
+      "type": {
+        "type": "integer"
+      },
+      "rule_id": {
+        "type": "long"
+      },
+      "price": {
+        "type": "integer"
+      },
+      "total": {
+        "type": "integer"
+      },
+      "sales": {
+        "type": "integer"
+      },
+      "pic_url": {
+        "type": "text"
+      },
+      "ext": {
+        "type": "object"
+      },
+      "sort": {
+        "type": "integer"
+      },
+      "bind": {
+        "type": "integer"
+      },
+      "visible": {
+        "type": "integer"
+      },
+      "status": {
+        "type": "integer"
+      },
+	  "dev": {
+      "type": "integer"
+      },
+      "started": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      },
+      "created": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      },
+      "updated": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+PUT pms_ground
+{
+  "mappings": {
+    "properties": {
+      "_class": {
+        "type": "keyword",
+        "index": false,
+        "doc_values": false
+      },
+      "product_id": {
+        "type": "long"
+      },
+      "type": {
+        "type": "integer"
+      },
+      "icon": {
+        "type": "text"
+      },
+      "sort": {
+        "type": "integer"
+      },
+      "visible": {
+        "type": "integer"
+      },
+      "created": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      },
+      "updated": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      }
+    }
+  }
+}

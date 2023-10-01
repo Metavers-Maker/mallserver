@@ -1,0 +1,74 @@
+PUT ums_member
+{
+  "mappings": {
+    "properties": {
+      "_class": {
+        "type": "keyword",
+        "index": false,
+        "doc_values": false
+      },
+      "openid": {
+        "type": "text"
+      },
+      "password": {
+        "type": "text"
+      },
+      "email": {
+        "type": "text"
+      },
+      "mobile": {
+        "type": "text"
+      },
+      "uid": {
+        "type": "text",
+        "analyzer": "ik_smart"
+      },
+      "nick_name": {
+        "type": "text",
+        "analyzer": "ik_smart"
+      },
+      "gender": {
+        "type": "integer"
+      },
+      "avatar_url": {
+        "type": "text"
+      },
+      "status": {
+        "type": "integer"
+      },
+      "auth_status": {
+        "type": "integer"
+      },
+      "birthday": {
+        "type": "date",
+        "format": "yyyy-MM-dd||strict_date_optional_time"
+      },
+      "secret": {
+        "type": "text"
+      },
+      "is_bind_google": {
+        "type": "text"
+      },
+      "chain_address": {
+        "type": "text"
+      },
+      "ext": {
+        "type": "text"
+      },
+      "invite_code": {
+        "type": "text"
+      },
+      "invite_user": {
+        "type": "long"
+      },
+      "created": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      },
+      "updated": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      }
+    }
+  }
+}

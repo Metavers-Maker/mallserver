@@ -1,0 +1,39 @@
+PUT ums_member_auth
+{
+  "mappings": {
+    "properties": {
+      "_class": {
+        "type": "keyword",
+        "index": false,
+        "doc_values": false
+      },
+      "member_id": {
+        "type": "long"
+      },
+      "mobile": {
+        "type": "text"
+      },
+      "real_name": {
+        "type": "text",
+        "analyzer": "ik_smart"
+      },
+      "id_card_type": {
+        "type": "integer"
+      },
+      "id_card": {
+        "type": "text"
+      },
+      "status": {
+        "type": "integer"
+      },
+      "created": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      },
+      "updated": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time"
+      }
+    }
+  }
+}
